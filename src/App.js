@@ -7,8 +7,18 @@ import React from 'react';
 import HomePage from './View/HomePage';
 import HeaderApp from './Compoment/Header';
 import Footer from './Compoment/Footer';
+import Slider from 'react-animated-slider';
+import 'react-animated-slider/build/horizontal.css';
+
 
 function App() {
+  const slides = [
+    { title: 'First item', description: 'Lorem ipsum' },
+    { title: 'Second item', description: 'Lorem ipsum' },
+    { title: 'Third item', description: 'Lorem ipsum' },
+    { title: 'Fouth item', description: 'Lorem ipsum' }
+  ];
+
   return (
     <div >
       <Router>
@@ -40,7 +50,23 @@ function App() {
             </div>
           </section>
 
+          {/* ------------------------------------------ */}
+          {/* ------------ Slide ----------------- */}
+          {/* ------------------------------------------ */}
 
+          {/* https://nemrut.co/blog/how-to-create-carousel-slider-using-alpine-js-tailwindcss */}
+          {/* https://www.npmjs.com/package/react-responsive-carousel */}
+
+          <div>
+            <Slider infinite={true} autoplay={3000}>
+              {slides.map((slide, index) =>
+                <div key={index}>
+                  <h2>{slide.title}</h2>
+                  <div>{slide.description}</div>
+                </div>
+              )}
+            </Slider>
+          </div>
           {/* ------------------------------------------ */}
           {/* ------------ Map ----------------- */}
           {/* ------------------------------------------ */}
@@ -50,7 +76,7 @@ function App() {
               <iframe title="map" marginheight="0" marginwidth="0" scrolling="no" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15635.806607477387!2d104.90384555!3d11.5553238!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x310951106e84cf15%3A0xec5dee7b6592801f!2zMTHCsDMzJzIyLjEiTiAxMDTCsDU0JzIwLjUiRQ!5e0!3m2!1sen!2skh!4v1603729505636!5m2!1sen!2skh" width="100%" height="100%" frameborder="0"></iframe>
             </div>
             <div class="container px-5 py-20 mx-auto flex">
-              
+
             </div>
           </section>
           {/* ------------------------------------------ */}
