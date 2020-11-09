@@ -7,20 +7,19 @@ import React from 'react';
 import HomePage from './View/HomePage';
 import HeaderApp from './Compoment/Header';
 import Footer from './Compoment/Footer';
-import Slider from 'react-animated-slider';
-import 'react-animated-slider/build/horizontal.css';
+import Slideshow from './Compoment/Slideshow';
 
 
 function App() {
   const slides = [
-    { title: 'First item', description: 'Lorem ipsum' },
-    { title: 'Second item', description: 'Lorem ipsum' },
-    { title: 'Third item', description: 'Lorem ipsum' },
-    { title: 'Fouth item', description: 'Lorem ipsum' }
+    { title: 'First item', description: 'Lorem ipsum', image: 'https://picsum.photos/720/1080' },
+    { title: 'Second item', description: 'Lorem ipsum', image: 'https://picsum.photos/720/1080' },
+    { title: 'Third item', description: 'Lorem ipsum', image: 'https://picsum.photos/720/1080' },
+    { title: 'Fouth item', description: 'Lorem ipsum', image: 'https://picsum.photos/720/1080' }
   ];
 
   return (
-    <div >
+    <div class="bg-gray-900">
       <Router>
         <HeaderApp />
         <div>
@@ -56,24 +55,56 @@ function App() {
 
           {/* https://nemrut.co/blog/how-to-create-carousel-slider-using-alpine-js-tailwindcss */}
           {/* https://www.npmjs.com/package/react-responsive-carousel */}
+          {/* https://www.npmjs.com/package/react-slideshow-image */}
 
-          <div>
-            <Slider infinite={true} autoplay={3000}>
-              {slides.map((slide, index) =>
-                <div key={index}>
-                  <h2>{slide.title}</h2>
-                  <div>{slide.description}</div>
+          <section>
+          <div class="w-full">
+
+            <Slideshow />
+
+            </div>
+          </section>
+
+          {/* ------------------------------------------ */}
+          {/* ------------ Photos ----------------- */}
+          {/* ------------------------------------------ */}
+          <section class="text-gray-500 bg-gray-900 body-font">
+            <div class="px-8 py-24 mx-auto flex flex-wrap">
+              <div class="flex flex-wrap md:-m-2 -m-1">
+                <div class="flex flex-wrap w-1/2">
+                  <div class="md:p-2 p-1 w-1/2">
+                    <img alt="gallery" class="w-full object-cover h-full object-center block" src="https://picsum.photos/1080/400" />
+                  </div>
+                  <div class="md:p-2 p-1 w-1/2">
+                    <img alt="gallery" class="w-full object-cover h-full object-center block" src="https://picsum.photos/1080/400" />
+                  </div>
+                  <div class="md:p-2 p-1 w-full">
+                    <img alt="gallery" class="w-full h-full object-cover object-center block" src="https://picsum.photos/1080/600" />
+                  </div>
                 </div>
-              )}
-            </Slider>
-          </div>
+                <div class="flex flex-wrap w-1/2">
+                  <div class="md:p-2 p-1 w-full">
+                    <img alt="gallery" class="w-full h-full object-cover object-center block" src="https://picsum.photos/1080/600" />
+                  </div>
+                  <div class="md:p-2 p-1 w-1/2">
+                    <img alt="gallery" class="w-full object-cover h-full object-center block" src="https://picsum.photos/1080/500" />
+                  </div>
+                  <div class="md:p-2 p-1 w-1/2">
+                    <img alt="gallery" class="w-full object-cover h-full object-center block" src="https://picsum.photos/1080/500" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+
           {/* ------------------------------------------ */}
           {/* ------------ Map ----------------- */}
           {/* ------------------------------------------ */}
 
-          <section class="text-gray-500 bg-gray-900 body-font relative">
-            <div class="absolute inset-0 bg-gray-900">
-              <iframe title="map" marginheight="0" marginwidth="0" scrolling="no" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15635.806607477387!2d104.90384555!3d11.5553238!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x310951106e84cf15%3A0xec5dee7b6592801f!2zMTHCsDMzJzIyLjEiTiAxMDTCsDU0JzIwLjUiRQ!5e0!3m2!1sen!2skh!4v1603729505636!5m2!1sen!2skh" width="100%" height="100%" frameborder="0"></iframe>
+          <section class="text-gray-500 my-8 bg-gray-900 body-font relative">
+            <div class="absolute inset-0 bg-gray-900 px-8">
+              <iframe title="map" marginheight="0" marginwidth="0" scrolling="no" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15635.806607477387!2d104.90384555!3d11.5553238!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x310951106e84cf15%3A0xec5dee7b6592801f!2zMTHCsDMzJzIyLjEiTiAxMDTCsDU0JzIwLjUiRQ!5e0!3m2!1sen!2skh!4v1603729505636!5m2!1sen!2skh" width="100%" height="100%" frameborder="0"/>
             </div>
             <div class="container px-5 py-20 mx-auto flex">
 
